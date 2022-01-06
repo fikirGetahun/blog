@@ -195,7 +195,7 @@ $_SESSION['scroll'] = array();
 
 
 
-
+<br><br><br>
 
   <script src="assets/jquery.js" ></script>
   <script>
@@ -350,7 +350,8 @@ if(isset($_GET['blog'])){
                     <?php 
                     require_once "php/fetchApi.php";
                     require_once "php/adminCrude.php";
-                  
+                    $time = $get->time_elapsed_string($row['postedDate']);
+
                         $bid = $_GET['blog'];
                         $blog = $get->allPostListerOnColumen('blogPost', 'id', $bid);
                         $row = $blog->fetch_assoc();
@@ -365,7 +366,7 @@ if(isset($_GET['blog'])){
                     <div class="avatar"><img src="<?php echo $user['photoPath1'] ?>" alt="..." class="img-fluid"></div>
                     <div class="title"><span><?php echo $user['firstName'].' '.$user['lastName'] ?></span></div></a>
                   <div class="d-flex align-items-center flex-wrap">       
-                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                    <div class="date"><i class="icon-clock"></i><?php $time ?></div>
 
                   </div>
                 </div><br>

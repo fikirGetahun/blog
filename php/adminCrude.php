@@ -153,17 +153,15 @@ echo $mysql->error;
         }
 
         //update users data
-        function updateUserData($uid, $password, $firstName, $lastName, $phone, $about, $job){
+        function updateUserData($uid, $password, $firstName, $lastName, $phone){
             include "connect.php";
+            $password = password_hash($password, PASSWORD_DEFAULT);
             $q = "UPDATE `user` SET `password`= '$password',`firstName`= '$firstName',
-            `lastName`= '$lastName' ,`phone`= '$phone',`about`= '$about'   WHERE `user`.`id` = '$uid'";
+            `lastName`= '$lastName' ,`phone`= '$phone'   WHERE `user`.`id` = '$uid'";
 
             $ask = $mysql->query($q);
-            if($ask){
-
-            }else{
-                echo "not workinggg";
-            }
+            echo $mysql->error;
+            return $ask;
         }
 
         //update userphoto path and file
@@ -176,7 +174,7 @@ echo $mysql->error;
             $real = "./uploads/adminPhoto/";
             $location = $real;
             $path = $location.'a'.$x.$fileName;
-            $q = "UPDATE `user` SET `photoPath`= '$path' WHERE `user`.`id` = '$uid'";
+            $q = "UPDATE `user` SET `photoPath1`= '$path' WHERE `user`.`id` = '$uid'";
             $ask = $mysql->query($q);
 
             return $path;

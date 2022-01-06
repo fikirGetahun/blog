@@ -133,8 +133,15 @@ body {
                 if($pa == password_verify($pa, $row['password'])){
                     $_SESSION['id'] = $row['id'];
                     $_SESSION['name'] = $row['firstName'].' '.$row['lastName'];
+                    $_SESSION['fname'] = $row['firstName'];
+                    $_SESSION['lname'] = $row['lastName'];
                     $_SESSION['auth'] = $row['auth'];
                     $_SESSION['photo'] = $row['photoPath1'];
+                    $_SESSION['phone'] = $row['phone'];
+                    $_SESSION['username'] = $us;
+                    $_SESSION['lastLogedIn'] = $row['lastLogedIn'];
+                    $_SESSION['reg'] = $row['registerdDate'];
+                    $_SESSION['password'] = $pa;
                     
                     header('Location: admin.php');
                 }else{
