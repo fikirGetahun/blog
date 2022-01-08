@@ -6,7 +6,7 @@ class fetch{
     ///// to fetch data from a 'table and condition(columen) with the argument
     function allPostListerOnColumen($table, $columen, $args){
         include "connect.php";
-        $q = "SELECT * FROM `$table` WHERE `$columen` LIKE '$args' ORDER BY RAND() LIMIT 12 ";
+        $q = "SELECT * FROM `$table` WHERE `$columen` LIKE '$args' ORDER BY RAND() LIMIT 4 ";
 
         $ask = $mysql->query($q);
 
@@ -37,7 +37,7 @@ class fetch{
 
     function allPostListerOnTableRan($table){
         include "connect.php";
-        $q = "SELECT * FROM `$table` ORDER BY RAND() LIMIT 10";
+        $q = "SELECT * FROM `$table` ORDER BY RAND() LIMIT 7";
 
         $ask = $mysql->query($q);
 

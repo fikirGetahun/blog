@@ -37,8 +37,8 @@ $s = $_SESSION['scroll'];
             </div>
                         
                         <?php
-
+array_push($_SESSION['scroll'], $row['id']);
                     }
-                    array_push($s, $row['id']);
+                    
                 }
                 ?>
