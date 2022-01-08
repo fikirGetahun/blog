@@ -1,3 +1,4 @@
+
 <style type="text/css">
   html,
 body {
@@ -89,78 +90,89 @@ body {
     
     <!-- Custom styles for this template -->
   </head>
+
   <body class="text-center">
     
 <main class="form-signin">
-  <form action="<?php $_SERVER['SCRIPT_NAME'] ?>" method="POST" >
-    
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
-      <label for="floatingInput">User name</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-
-    <div class="checkbox mb-3">
-      <label>
-        <!-- <input type="checkbox" value="remember-me"> Remember me -->
-      </label>
-    </div>
-      <input class="btn btn-lg btn-primary" type="submit" value="Sign In">
-    <div>
-      <a href="forgetPassword.php?forget=true" ><p>Forgat Password?</p></a>
-    <?php
+<?php
     require_once('includes/header.php');
     require_once('php/auth.php');
+require_once "php/adminCrude.php";
 
-
-    if(isset($_POST['username'], $_POST['password'])){
-        $us = $_POST['username'];
-        $pa = $_POST['password'];
-        $check = $auth->loginAuth($us);
+    //// to trigger the forget password then to present the username and recover input field
+    if(isset($_GET['forget'])){
       
-        if($check->num_rows == 0){
-            echo 'Wrong User Name';
-            $login = 'NOT_USER';
+      ?>
+      <h5>Enter Your Username here. so that we will Send your password to your email.</h5>
+      <form action="forgetPassword.php" method="POST">
+      <div class="form-floating">
+      <input type="email" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+      <label for="floatingInput">User name</label>
+      
+      </div>
 
-        }elseif($check->num_rows > 0){
-          $row = $check->fetch_assoc();  
-          // echo $pa;
-          // echo $row['password'];
-            $f = $row['password'];
-                if($pa == $f){
-                    $_SESSION['id'] = $row['id'];
-                    $_SESSION['name'] = $row['firstName'].' '.$row['lastName'];
-                    $_SESSION['fname'] = $row['firstName'];
-                    $_SESSION['lname'] = $row['lastName'];
-                    $_SESSION['auth'] = $row['auth'];
-                    $_SESSION['photo'] = $row['photoPath1'];
-                    $_SESSION['phone'] = $row['phone'];
-                    $_SESSION['username'] = $us;
-                    $_SESSION['lastLogedIn'] = $row['lastLogedIn'];
-                    $_SESSION['reg'] = $row['registerdDate'];
-                    $_SESSION['password'] = $pa;
-                    
-                    header('Location: admin.php');
-                }else{
-                  echo 'Password Incorrect';
-                }
+      <div id="registerBox">
+    <label for="exampleInputEmail1">Password Recovery Keyword</label>
+          <input type="email" class="form-control" id="username" 
+           name="recover" placeholder="Username">
+          <small id="emailHelp" class="form-text text-muted">This here is a key word you have to remember your password when you forget it.</small>
+    </div>
 
-            
-
-        }
-        
+    <input type="submit" value="Submit">
+      </form>
+      <?php
     }
+
+
+    /////// after user inputs the forgat password field the next step presented by this blok
+    if(isset($_POST['username'], $_POST['recover'])){
+      $us2 = $_POST['username']; 
+      $recover = $_POST['recover'];
+      $check = $auth->loginAuth($us2);
+      $urow3 = $check->fetch_assoc();
+      if($check->num_rows == 0){
+          echo 'USERNAME DOESNOT EXIST';
+      }elseif($urow3['recover'] == $recover){ //if the recover keyword match
+        $uid = $urow3['id'];
+        ?>
+        <form action="forgetPassword.php" method="POST">
+        <input type="text" hidden name="upid" value="<?php echo $uid ?>">
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" name="r" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+    <input type="submit" value="Change Password">
+
+      </form>
+        
+        
+        
+        <?php
+      }elseif($urow3['recover'] != $recover){ /// if the recover keyword dont match
+        echo 'Sorry Your Password Recover Keyword Does not Match!';
+      }
+    }
+
+    //////////// to update the password if it matched the recover keyword
+    if(isset($_POST['r'], $_POST['upid'])){
+    $hx= $_POST['upid'];
+      $pzx = $_POST['r'];
+      $puz = $admin->password($pzx,$hx);
+      
+      if($puz){
+        //   echo $h;
+        // echo 'this --'.$puz;
+        echo 'PASSWORD CHANGED';
+        ?>
+        <a href="admin.php">Login</a>
+        
+        <?php
+      }else{
+        echo 'ERROR';
+      }
+    }
+
 ?>
-    <p class="mt-5 mb-3 text-muted">&copy; Chengity</p>
-  </form>
+    </div>
 </main>
-
-
-    
   </body>
-</html>

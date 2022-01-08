@@ -68,11 +68,16 @@ include "./includes/nav.php";
         <select class="custom-select" name="auth" id="inputGroupSelect01">
           <option >Choose...</option>
           <option value="ADMIN">ADMIN</option>
-          <option selected value="EDITOR">EDITOR</option>
+          <option value="EDITOR">EDITOR</option>
         </select>
         </div>
         
-        
+        <div id="registerBox">
+    <label for="exampleInputEmail1">Password Recovery Keyword</label>
+          <input type="email" class="form-control" id="username" 
+           name="recover" placeholder="Username">
+          <small id="emailHelp" class="form-text text-muted">This here is a key word you have to remember your password when you forget it.</small>
+    </div>
 
      
 
@@ -96,7 +101,7 @@ include "./includes/nav.php";
     require_once "php/auth.php";
 
     if(isset($_POST['firstName'], $_POST['lastName'], $_POST['phoneNumber'], $_POST['username'],
-     $_POST['password'], $_POST['auth'], $_FILES['photoq'])){
+     $_POST['password'], $_POST['auth'], $_FILES['photoq'], $_POST['recover'])){
 
       // echo 'in';
          $firstName =$_POST['firstName'] ;
@@ -105,8 +110,8 @@ include "./includes/nav.php";
          $username =$_POST['username'] ;
          $password =$_POST['password'] ;
          $auth1 =$_POST['auth'] ;
-         $password = password_hash($password, PASSWORD_DEFAULT);
-
+        //  $password = password_hash($password, PASSWORD_DEFAULT);
+        $recover = $_POST['recover'];
          $check = $auth->loginAuth($username);
 
          if($check->num_rows > 0){
@@ -124,7 +129,7 @@ include "./includes/nav.php";
           $fileName = $_FILES['photoq']['name'];
                     //to upload photo
                     $up = $admin->uploadPhoto($fileName, $tempName);
-                    $out = $admin->userAdder($firstName, $lastName, $phoneNumber, $username, $password, $auth1, $up ); 
+                    $out = $admin->userAdder($recover, $firstName, $lastName, $phoneNumber, $username, $password, $auth1, $up ); 
                     if($out){
                       echo 'Register Succsesfull';
                     }else{
@@ -132,7 +137,7 @@ include "./includes/nav.php";
                     }
         
                   }else{
-          $out = $admin->userAdder($firstName, $lastName, $phoneNumber, $username, $password, $auth, ' ' ); 
+          $out = $admin->userAdder($recover,$firstName, $lastName, $phoneNumber, $username, $password, $auth1, ' ' ); 
           if($out){
             echo 'Register Succsesfull';
           }else{

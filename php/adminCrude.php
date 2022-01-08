@@ -99,18 +99,33 @@
 
 
         //USER ADDER AS 'ADMIN' OR 'EDITOR'
-        function userAdder($firstName, $lastName, $phone, $username, $password, $auth, $photoPath){
+        function userAdder($recover,$firstName, $lastName, $phone, $username, $password, $auth, $photoPath){
             include "connect.php";
             $date = date('Y-m-d');
 
 
-            $q ="INSERT INTO `user`( `username`, `password`, `firstName`, `lastName`, `phone`, `auth`,`photoPath1`,`lastLogedIn`, `registerdDate` )
-             VALUES ('$username', '$password', '$firstName', '$lastName', '$phone', '$auth', '$photoPath', '$date', '$date' )";
+            $q ="INSERT INTO `user`( `recover`, `username`, `password`, `firstName`, `lastName`, `phone`, `auth`,`photoPath1`,`lastLogedIn`, `registerdDate` )
+             VALUES ('$recover', '$username', '$password', '$firstName', '$lastName', '$phone', '$auth', '$photoPath', '$date', '$date' )";
 
              $ask = $mysql->query($q);
 echo $mysql->error;
              return $ask;
 
+        }
+
+
+
+        ///update password
+        function password($passx, $id){
+            include "connect.php";
+            $x = $passx;
+
+            $qz = "UPDATE `user` SET `password` = '$x'   WHERE `user`.`id` = '$id'";
+    
+            $ask = $mysql->query($qz);
+            echo $mysql->error;
+    
+            return $ask;
         }
 
 
@@ -155,7 +170,7 @@ echo $mysql->error;
         //update users data
         function updateUserData($uid, $password, $firstName, $lastName, $phone){
             include "connect.php";
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            // $password = password_hash($password, PASSWORD_DEFAULT);
             $q = "UPDATE `user` SET `password`= '$password',`firstName`= '$firstName',
             `lastName`= '$lastName' ,`phone`= '$phone'   WHERE `user`.`id` = '$uid'";
 
@@ -174,6 +189,7 @@ echo $mysql->error;
             $real = "./uploads/adminPhoto/";
             $location = $real;
             $path = $location.'a'.$x.$fileName;
+            
             $q = "UPDATE `user` SET `photoPath1`= '$path' WHERE `user`.`id` = '$uid'";
             $ask = $mysql->query($q);
 

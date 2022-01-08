@@ -117,6 +117,22 @@ class auth{
 
     }
 
+            // echo $pass;
+            // $pass = password_hash($pass, PASSWORD_DEFAULT);
+        ///update password
+        function passwordUpdate($pass, $id){
+            include "connect.php";
+// $pass = password_hash($pass, PASSWORD_DEFAULT);
+            $x = $pass;
+
+            $q = " UPDATE `user` SET `password` = '$x'   WHERE `user`.`id` = '$id'";
+    
+            $ask = $mysql->query($q);
+            echo $mysql->error;
+    
+            return $ask; 
+        }
+
 
 }
 

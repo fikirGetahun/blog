@@ -8,11 +8,11 @@ $_SESSION['scroll'] = array();
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bootstrap Blog - B4 Template by Bootstrap Temple</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/bootstrap/css/bootstrap.min.css">
@@ -32,52 +32,163 @@ $_SESSION['scroll'] = array();
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]--> -->
+  
+  
+  
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<title>Atrons Consulting and Training Center - Index</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
+
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap1/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons1/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/boxicons1/css/boxicons.min.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/vendor/remixicon1/remixicon.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="assets/css/style1.css" rel="stylesheet">
+
+    </head>
   <body>
-    <header class="header">
-      <!-- Main Navbar-->
-      <nav class="navbar navbar-expand-lg">
-        <div class="search-area">
-          <div class="search-area-inner d-flex align-items-center justify-content-center">
-            <div class="close-btn"><i class="icon-close"></i></div>
-            <div class="row d-flex justify-content-center">
-              <div class="col-md-8">
-                <form action="#">
-                  <div class="form-group">
-                    <input type="search" name="search" id="search" placeholder="What are you looking for?">
-                    <button type="submit" class="submit"><i class="icon-search-1"></i></button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <!-- Navbar Brand -->
-          <div class="navbar-header d-flex align-items-center justify-content-between">
-            <!-- Navbar Brand --><a href="index.html" class="navbar-brand">Bootstrap Blog</a>
-            <!-- Toggle Button-->
-            <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
-          </div>
-          <!-- Navbar Menu -->
-          <div id="navbarcollapse" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link ">Home</a>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="index.php">Atrons</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="index.php#hero">Home</a></li>
+          <li><a class="nav-link scrollto active"  href="./blogView.php?blogView=true">Blog</a></li>
+          <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
+          <li><a class="nav-link scrollto" href="index.php#services">Services</a></li> 
+          <li><a class="nav-link scrollto" href="index.php#team">Team</a></li>
+          <li class="dropdown"><a href="#"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li class="dropdown"><a href="#"><span>Data Science</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Machine Learning</a></li>
+                  <li><a href="#">Clinical Trail</a></li>
+                  <li><a href="#">Artificial Inelegancy</a></li>
+                  <li><a href="#">R (Programming Language)</a></li>
+                  <li><a href ="#">SAS</a></li>
+                    <li><a href="#">SPSS</a></li>
+                    <li><a href="#">STATA</a></li>
+                    <li><a href="#">E-Views</a></li>
+                    <li><a href="#">Minitab</a></li>
+                    <li><a href="#">MLWIN</a></li>
+                    <li><a href="#">WinBUGS</a></li>
+                    <li><a href="#">Matlab</a></li>
+                    <li><a href="#">Epi-info</a></li>
+                    <li><a href="#">Deep Learning</a></li>
+                    <li><a href="#">Research Development</a></li>
+                    <li><a href="#">Data Mining</a></li>
+                    <li><a href="#">Data Journalism</a></li>
+                    <li><a href="#">Cloud Computing</a></li>
+                    <li><a href="#">AWS</a></li>
+                    <li><a href="#">Tableau</a></li>
+                    <li><a href="#">Predictive Modeling</a></li>
+                    <li><a href="#">Google Analytics</a></li>
+                    <li><a href="#">MS SQL</a></li>
+                    <li><a href="#">Data Visualization</a></li>
+                    <li><a href="#">Business Intelligence</a></li>
+                    <li><a href="#">AMOS</a></li>
+                    <li><a href="#">ODK</a></li>
+                    <li><a href="#">Excel</a></li>
+                    <li><a href="#">Bio-statistical Modeling</a></li>
+                    <li><a href="#">Survey Solution</a></li>
+                    <li><a href="#">GIS</a></li>
+                    <li><a href="#">Manuscript Writing</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
               </li>
-              <li class="nav-item"><a href="blog.html" class="nav-link active ">Blog</a>
+              <li class="dropdown"><a href="#"><span>Entrepreneurship</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                    <li><a href="#">Business Fundamentals</a></li>
+                    <li><a href="#">Entrepreneurship Fundamentals</a></li>
+                    <li><a href="#">Business Strategy</a></li>
+                    <li><a href="#">Online Business</a></li>
+                    <li><a href="#">Freelancing</a></li>
+                    <li><a href="#">Startup</a></li>
+                    <li><a href="#">Business Plan</a></li>
+                    <li><a href="#">Blogging</a></li>
+                    <li><a href="#">Home Business</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
               </li>
-              <li class="nav-item"><a href="post.html" class="nav-link ">Post</a>
+              <li class="dropdown"><a href="#"><span>IT</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                    <li><a href="#">Programing Language</a></li>
+                    <li><a href="#">IT certification</a></li>
+                    <li><a href="#">Network & Security</a></li>
+                    <li><a href="#">Operating System & Server</a></li>
+                    <li><a href="#">Hardware Maintenance</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
               </li>
-              <li class="nav-item"><a href="#" class="nav-link ">Contact</a>
+              <li class="dropdown"><a href="#"><span>Development</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile Development</a></li>
+                    <li><a href="#">Game Development</a></li>
+                    <li><a href="#">Database Design & Development</a></li>
+                    <li><a href="#">No-Code Development</a></li>
+                    <li><a href="#">Software Development</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Management</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                    <li><a href="#">Product Management</a></li>
+                    <li><a href="#">Leadership</a></li>
+                    <li><a href="#">Business Strategy</a></li>
+                    <li><a href="#">Management Skills</a></li>
+                    <li><a href="#">Business Process Management</a></li>
+                    <li><a href="#">Quality Management</a></li>
+                    <li><a href="#">Risk Management</a></li>
+                    <li><a href="#">Customer Analytics</a></li>
+                    <li><a href="#">Marketing Analytics</a></li>
+                    <li><a href="#">Advertising and Promotion</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>Marketing</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                    <li><a href="#">Sales</a></li>
+                    <li><a href="#">Business Strategy</a></li>
+                    <li><a href="#">Business Analytics and Intelligence</a></li>
+                    <li><a href="#">Business Law</a></li>
+                    <li><a href="#">Digital Marketing</a></li>
+                    <li><a href="#">Branding</a></li>
+                    <li><a href="#">Marketing Fundamentals</a></li>
+                    <li><a href="#">Others</a></li>
+                </ul>
               </li>
             </ul>
-            <div class="navbar-text"><a href="#" class="search-btn"><i class="icon-search-1"></i></a></div>
-            <ul class="langs navbar-text"><a href="#" class="active">EN</a><span>           </span><a href="#">ES</a></ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
     <script src="assets/jquery.js" ></script>
     <script>
         $(document).ready(function(){
@@ -295,5 +406,21 @@ $_SESSION['scroll'] = array();
     <script src="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/jquery.cookie/jquery.cookie.js"> </script>
     <script src="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/@fancyapps/fancybox/jquery.fancybox.min.js"></script>
     <script src="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/js/front.js"></script>
-  </body>
+ 
+
+    <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap1/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main1.js"></script>
+</body>
 </html>

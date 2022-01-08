@@ -76,7 +76,7 @@ $_SESSION['scroll'] = array();
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="index.php#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#">Blog</a></li>
+          <li><a class="nav-link scrollto" href="./blogView.php?blogView=true">Blog</a></li>
           <li><a class="nav-link scrollto" href="index.php#about">About</a></li>
           <li><a class="nav-link scrollto" href="index.php#services">Services</a></li> 
           <li><a class="nav-link scrollto" href="index.php#team">Team</a></li>
@@ -308,7 +308,7 @@ $_SESSION['scroll'] = array();
               
               while($row2 = $recent->fetch_assoc()){
                   ?>
-              <a href="./blogDescription.php?blog=<?php echo $row2['id'] ?>">
+              <a href="./blogView.php?blog=<?php echo $row2['id'] ?>">
               <div class="item d-flex align-items-center">
                 <div class="image"><img src="<?php $p = $admin->photoSplit($row2['photoPath1']); echo $p[0] ;?>" alt="..." class="img-fluid"></div>
                 <div class="title"><?php echo $row2['title'] ?></strong>
@@ -350,7 +350,6 @@ if(isset($_GET['blog'])){
                     <?php 
                     require_once "php/fetchApi.php";
                     require_once "php/adminCrude.php";
-                    $time = $get->time_elapsed_string($row['postedDate']);
 
                         $bid = $_GET['blog'];
                         $blog = $get->allPostListerOnColumen('blogPost', 'id', $bid);
@@ -358,7 +357,8 @@ if(isset($_GET['blog'])){
                         $ph = $get->allPostListerOnColumen('user', 'id', $row['posterId'] );
                         $user = $ph->fetch_assoc();
                     
-                    
+                        $time = $get->time_elapsed_string($row['postedDate']);
+
                     ?>
                   <p class="lead">  </p>
                   <h1><?php echo $row['title'] ?><a href="#"><i class="fa fa-bookmark-o"></i></a></h1><br>
@@ -454,7 +454,7 @@ if(isset($_GET['blog'])){
                 
                 while($row2 = $recent->fetch_assoc()){
                     ?>
-                <a href="./blogDescription.php?blog=<?php echo $row2['id'] ?>">
+                <a href="./blogView.php?blog=<?php echo $row2['id'] ?>">
                 <div class="item d-flex align-items-center">
                   <div class="image"><img src="<?php $p = $admin->photoSplit($row2['photoPath1']); echo $p[0] ;?>" alt="..." class="img-fluid"></div>
                   <div class="title"><?php echo $row2['title'] ?></strong>

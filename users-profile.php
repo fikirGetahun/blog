@@ -187,7 +187,7 @@ $u = $_SESSION['id'];
                     <div class="row mb-3">
                       <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Change Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="password" type="text" class="form-control" id="Phone" value="<?php echo $u['phone'] ?>">
+                        <input name="password" type="text" class="form-control" id="Phone" value="<?php echo $u['password'] ?>">
                       </div>
                     </div>
 
