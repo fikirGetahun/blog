@@ -60,7 +60,7 @@ include "includes/nav.php";
                   $title = $_POST['title'];
                   $content = $_POST['content'];
                   $pid = $_SESSION['id'];
-                  echo 'user d--'.$pid;
+                  // echo 'user d--'.$pid;
                   $fileVar = $_FILES['photo'];
 
                   $up = $admin->uploadPhotos('blog', $fileVar);

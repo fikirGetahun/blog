@@ -1277,6 +1277,7 @@ echo $mysql->error;
            include "connect.php";
            $postedDate = date('Y-m-d H:i:s');
            $content = addslashes($content);
+           $title = addslashes($title);
            $q = "INSERT INTO `blogPost` (`title`, `postedDate`, `content`, `posterId`, `photoPath1`)
             VALUES ('$title', '$postedDate', '$content', '$posterId', '$photo' )";
 

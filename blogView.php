@@ -20,7 +20,7 @@ $_SESSION['scroll'] = array();
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -30,8 +30,12 @@ $_SESSION['scroll'] = array();
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon1/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
- 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bootstrap Blog - B4 Template by Bootstrap Temple</title>
@@ -313,6 +317,7 @@ $_SESSION['scroll'] = array();
                 <div class="image"><img src="<?php $p = $admin->photoSplit($row2['photoPath1']); echo $p[0] ;?>" alt="..." class="img-fluid"></div>
                 <div class="title"><?php echo $row2['title'] ?></strong>
                   <div class="d-flex align-items-center">
+                  <div class="date"></i><?php echo $PD ?></div>
 
                   </div>
                 </div>
@@ -356,7 +361,8 @@ if(isset($_GET['blog'])){
                         $row = $blog->fetch_assoc();
                         $ph = $get->allPostListerOnColumen('user', 'id', $row['posterId'] );
                         $user = $ph->fetch_assoc();
-                    
+                        $c = date_create($row['postedDate']);
+                        $PD = date_format($c, "Y/m/d");
                         $time = $get->time_elapsed_string($row['postedDate']);
 
                     ?>
@@ -366,7 +372,7 @@ if(isset($_GET['blog'])){
                     <div class="avatar"><img src="<?php echo $user['photoPath1'] ?>" alt="..." class="img-fluid"></div>
                     <div class="title"><span><?php echo $user['firstName'].' '.$user['lastName'] ?></span></div></a>
                   <div class="d-flex align-items-center flex-wrap">       
-                    <div class="date"><i class="icon-clock"></i><?php $time ?></div>
+                    <div class="date"><i class="icon-clock"></i><?php echo $time ?></div>
 
                   </div>
                 </div><br>
@@ -375,7 +381,8 @@ if(isset($_GET['blog'])){
                 <div class="carousel-item active">
                 <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[0] ;?>" alt="First slide">
                 </div>
-                <?php if(!empty($p[1])){
+                <?php
+                 if(!empty($p[1])){
                 ?>
                 <div class="carousel-item">
                 <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[1] ;?>" alt="Second slide">
@@ -386,7 +393,7 @@ if(isset($_GET['blog'])){
             <?php if(!empty($p[2])){
                 ?>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[2] ;?>" alt="Second slide">
+                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[2] ;?>" alt="Second3 slide">
                 </div>  
                 <?php
                 } ?>
@@ -395,7 +402,7 @@ if(isset($_GET['blog'])){
             <?php if(!empty($p[3])){
                 ?>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[3] ;?>" alt="Second slide">
+                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[3] ;?>" alt="Second4 slide">
                 </div>  
                 <?php
                 } ?>
@@ -403,7 +410,7 @@ if(isset($_GET['blog'])){
             <?php if(!empty($p[4])){
                 ?>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[4] ;?>" alt="Second slide">
+                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[4] ;?>" alt="Second5 slide">
                 </div>  
                 <?php
                 } ?>
@@ -411,7 +418,7 @@ if(isset($_GET['blog'])){
             <?php if(!empty($p[5])){
                 ?>
                 <div class="carousel-item">
-                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[5] ;?>" alt="Second slide">
+                <img class="d-block w-100" src="<?php $p = $admin->photoSplit($row['photoPath1']); echo $p[5] ;?>" alt="Second6 slide">
                 </div>  
                 <?php
                 } ?>
@@ -427,9 +434,8 @@ if(isset($_GET['blog'])){
                 <span class="sr-only">Next</span>
             </a>
             </div>                
-                            <p><?php echo $row['content'] ?></p>
+                            <p class="lead" ><?php echo $row['content'] ?></p>
 
-                  <p>quasi nam. Libero dicta eum recusandae, commodi, ad, autem at ea iusto numquam veritatis, officiis. Accusantium optio minus, voluptatem? Quia reprehenderit, veniam quibusdam provident, fugit iusto ullam voluptas neque soluta adipisci ad.</p>
                 </div>
 
               </div>
@@ -445,9 +451,7 @@ if(isset($_GET['blog'])){
               <h3 class="h6">Latest Posts</h3>
             </header>
             <div class="widget latest-posts">
-            <header>
-              <h3 class="h6">Latest Posts</h3>
-            </header>
+
             <div class="blog-posts">
             <?php 
                 $recent = $get->allPostListerOnTableRan('blogPost');
@@ -459,7 +463,10 @@ if(isset($_GET['blog'])){
                   <div class="image"><img src="<?php $p = $admin->photoSplit($row2['photoPath1']); echo $p[0] ;?>" alt="..." class="img-fluid"></div>
                   <div class="title"><?php echo $row2['title'] ?></strong>
                     <div class="d-flex align-items-center">
-                        
+                  <div class="d-flex align-items-center flex-wrap">       
+                    <div class="date"></i><?php echo $PD ?></div>
+
+                  </div>
                     </div>
                   </div>
                 </div></a>
