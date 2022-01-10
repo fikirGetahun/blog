@@ -113,6 +113,11 @@
               <i class="bi bi-circle"></i><span>Add Admin/Editor</span>
             </a>
           </li> 
+          <li>
+            <a href="blogManager.php?personal=true">
+              <i class="bi bi-circle"></i><span>Manage Editor</span>
+            </a>
+          </li> 
                 <?php
             }
             

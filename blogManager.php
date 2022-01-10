@@ -26,8 +26,13 @@ $name = $_SESSION['name'];
 
   <main id="main" class="main">
       <?php
+
+if(isset($_GET['personal'])){
+
       $blogList = $get->allPostListerOnColumen('blogPost', 'posterId', $pidd);
-      
+      if($blogList->num_rows == 0){
+        echo 'NO POST TO SEE';
+      }
 
       while($row = $blogList->fetch_assoc()){
           ?>
@@ -46,7 +51,67 @@ $name = $_SESSION['name'];
           
           <?php
       }
-      
+    }
+
+
+
+
+    if(isset( $_GET['eid'], $_GET['show'])){
+      $eid = $_GET['eid'];
+
+      $blogList = $get->allPostListerOnColumen('blogPost', 'posterId', $eid);
+      $userData = $get->allPostListerOnColumen('user','id', $eid);
+      $urow2 = $userData->fetch_assoc();
+      if($blogList->num_rows == 0){
+        echo 'NO POST TO SEE';
+      }
+
+      while($row = $blogList->fetch_assoc()){
+          ?>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $row['title'] ?></h5>
+    <p class="card-text"><?php echo $row['content'] ?></p>
+    <?php 
+        $time = $get->time_elapsed_string($row['postedDate'])
+    ?>
+    <p class="card-text"><small class="text-muted"><?php echo $time ?></small></p>
+    <p class="card-text"><small class="text-muted">Posted By; <?php echo $urow2['firstName'].' '.$urow2['lastName'] ?></small></p>
+    <button onclick="del('<?php echo $row['id'] ?>')" >Delete</button>
+  </div>
+</div>
+          
+          <?php
+      }
+    }
+
+
+
+    if(isset($_GET['editor'])){
+      $bloger = $get->allPostListerOnColumen('user','auth','EDITOR');
+
+      while($row2 = $bloger->fetch_assoc()){
+        
+        ?>
+        <div class="card mb-3">
+        <img src="<?php echo $row2['photoPath1'] ?>" class="rounded mx-auto d-block w-25 float-left" alt="...">
+  <div class="card-body">
+
+  <h5 class="card-title"><?php echo $row2['firstName'].' '.$row2['lastName'] ?></h5>
+    <?php 
+        // $time = $get->time_elapsed_string($row['postedDate'])
+    ?>
+    <p class="card-text"><small class="text-muted"><a href="blogManager.php?show=true&eid=<?php echo $row2['id'] ?>" ><button  >View Editors Posts</button></a></small></p>
+    <button onclick="del('<?php echo $row2['id'] ?>')" >Remove User</button>
+  </div>
+</div>
+         
+        
+        <?php
+      }
+
+
+    }
       ?>
 
 

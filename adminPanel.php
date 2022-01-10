@@ -34,9 +34,9 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="admin.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Changity</span>
+        <span class="d-none d-lg-block">Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -110,6 +110,11 @@
                 <li>
             <a href="registor.php">
               <i class="bi bi-circle"></i><span>Add Admin/Editor</span>
+            </a>
+          </li> 
+          <li>
+            <a href="blogManager.php?personal=true">
+              <i class="bi bi-circle"></i><span>Manage Editor</span>
             </a>
           </li> 
                 <?php
