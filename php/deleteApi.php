@@ -19,6 +19,20 @@ if(isset($_POST['bid'])){
 }
 
 
+////to delete user
+if(isset($_POST['eid'])){
+    $eid = $_POST['eid'];
+    $del = $auth->postDeleter('user', $eid );
+
+    if($del){
+        echo 'USER REMOVED!';
+
+    }else{
+        echo 'Error';
+    }
+}
+
+
 if(isset($_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['password'])){
     $fname = $_POST['firstName'];
     $lname =$_POST['lastName'];

@@ -72,7 +72,7 @@
       <li class="nav-item">
         <a class="nav-link " href="admin.php">
           <i class="bi bi-grid"></i>
-          <span>Changity</span>
+          <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
   
@@ -129,7 +129,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="blogManager.php">
+        <a class="nav-link collapsed" href="blogManager.php?yourPost=true">
           <i class="bi bi-person"></i>
           <span>Your Posts</span>
         </a>
@@ -152,7 +152,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -196,23 +196,52 @@
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
 
+
+
                 <div class="card-body">
-                  <h5 class="card-title">Editors <span>| Admin</span></h5>
+                  <h5 class="card-title">Admin <span>| All</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1</h6>
-                      <span class="text-success small pt-1 fw-bold">This Are Your admins</span> 
+                    <?php
+                        require_once "./php/fetchApi.php";
+                        $blogg3 = $get->allPostListerOnColumen('user','auth','ADMIN');
+                        $num3 = $blogg3->num_rows;
+                        ?>
+                      <h6><?php echo $num3 ?></h6>                      <span class="text-success small pt-1 fw-bold">This Are Your admins</span> 
 
                     </div>
                   </div>
                 </div>
-
               </div>
             </div><!-- End Revenue Card -->
+
+            <div class="col-xxl-4 col-md-6">
+            <div class="card info-card revenue-card">
+            <div class="card-body">
+                  <h5 class="card-title">Editors <span>| All</span></h5>
+
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                    <?php
+                        require_once "./php/fetchApi.php";
+                        $blogg2 = $get->allPostListerOnColumen('user','auth','EDITOR');
+                        $num2 = $blogg2->num_rows;
+                        ?>
+                      <h6><?php echo $num2 ?></h6>                      <span class="text-success small pt-1 fw-bold">This Are Your admins</span> 
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+
 
             <!-- Customers Card -->
             <div class="col-xxl-4 col-xl-12">
@@ -220,7 +249,7 @@
               <div class="card info-card customers-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Welcome <span>| Awel Kasim</span></h5>
+                  <h5 class="card-title">Welcome <span>| <?php echo $_SESSION['name'] ?></span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">

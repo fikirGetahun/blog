@@ -21,13 +21,27 @@ $name = $_SESSION['name'];
         })
     }
     }
+
+    function delUser(id){
+        if(confirm("Are You Sure You Want To Remove This User?") == true){
+        $.ajax({
+            url: 'php/deleteApi.php',
+            type: 'POST',
+            data:{ eid: id},
+            success: function(data){
+                alert(data)
+                location.reload()
+            }
+        })
+    }
+    }
 </script>
 
 
   <main id="main" class="main">
       <?php
 
-if(isset($_GET['personal'])){
+if(isset($_GET['yourPost'])){
 
       $blogList = $get->allPostListerOnColumen('blogPost', 'posterId', $pidd);
       if($blogList->num_rows == 0){
@@ -87,7 +101,7 @@ if(isset($_GET['personal'])){
 
 
 
-    if(isset($_GET['editor'])){
+    if(isset($_GET['personal'])){
       $bloger = $get->allPostListerOnColumen('user','auth','EDITOR');
 
       while($row2 = $bloger->fetch_assoc()){
@@ -102,7 +116,7 @@ if(isset($_GET['personal'])){
         // $time = $get->time_elapsed_string($row['postedDate'])
     ?>
     <p class="card-text"><small class="text-muted"><a href="blogManager.php?show=true&eid=<?php echo $row2['id'] ?>" ><button  >View Editors Posts</button></a></small></p>
-    <button onclick="del('<?php echo $row2['id'] ?>')" >Remove User</button>
+    <button onclick="delUser('<?php echo $row2['id'] ?>')" >Remove User</button>
   </div>
 </div>
          
