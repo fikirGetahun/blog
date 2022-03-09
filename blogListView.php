@@ -6,6 +6,7 @@ $_SESSION['scroll'] = array();
 
 ?>
 <!DOCTYPE html>
+
 <html>
   <head>
     <!-- <meta charset="utf-8">
@@ -14,7 +15,7 @@ $_SESSION['scroll'] = array();
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
+    Bootstrap CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/blog/1-2-1/vendor/font-awesome/css/font-awesome.min.css">

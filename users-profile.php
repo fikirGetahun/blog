@@ -61,9 +61,7 @@ $u = $_SESSION['id'];
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
                 </li>
 
-                <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
-                </li>
+            
 
               </ul>
               <div class="tab-content pt-2">
@@ -158,44 +156,46 @@ $u = $_SESSION['id'];
                         <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                         </div>
                       </div>
-                    </div>
-                    <input type="submit" value="Save Changes">
-                    <form>
+                    <!-- </div> -->
+                    
                   <form>
 
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="firstName" type="text" class="form-control" id="firstName" value="<?php echo $u['firstName'] ?>">
-                      </div>
-                    </div>
+<div class="row mb-3">
+  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">First Name</label>
+  <div class="col-md-8 col-lg-9">
+    <input name="firstName" type="text" class="form-control" id="firstName" value="<?php echo $u['firstName'] ?>">
+  </div>
+</div>
 
-                    <div class="row mb-3">
-                      <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="lastName" type="text" class="form-control" id="firstName" value="<?php echo $u['lastName'] ?>">
-                      </div>
-                    </div>
+<div class="row mb-3">
+  <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Last Name</label>
+  <div class="col-md-8 col-lg-9">
+    <input name="lastName" type="text" class="form-control" id="firstName" value="<?php echo $u['lastName'] ?>">
+  </div>
+</div>
 
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="phone" value="<?php echo $u['phone'] ?>">
-                      </div>
-                    </div>
+<div class="row mb-3">
+  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+  <div class="col-md-8 col-lg-9">
+    <input name="phone" type="text" class="form-control" id="phone" value="<?php echo $u['phone'] ?>">
+  </div>
+</div>
 
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Change Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="text" class="form-control" id="Phone" value="<?php echo $u['password'] ?>">
-                      </div>
-                    </div>
+<div class="row mb-3">
+  <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Change Password</label>
+  <div class="col-md-8 col-lg-9">
+    <input name="password" type="text" class="form-control" id="Phone" value="<?php echo $u['password'] ?>">
+  </div>
+</div>
 
 
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form><!-- End Profile Edit Form -->
+<div class="text-center">
+  <button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</form><!-- End Profile Edit Form -->
+                    <input type="submit" value="Save Changes">
+                </form>
+                </div>
 
                 </div>
 

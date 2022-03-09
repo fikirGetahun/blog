@@ -1,6 +1,7 @@
 <?php
 
 include "./includes/nav.php";
+
 ?>
 
   <main id="main" class="main">
