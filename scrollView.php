@@ -29,7 +29,7 @@ $s = $_SESSION['scroll'];
                     <h3 class="h4"><?php echo $row['title'] ?></h3></a>
                   <!-- <p class="text-muted"><?php echo $row['content'] ?></p> -->
                   <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
-                      <div class="avatar"><img src="<?php echo $user['photoPath1'] ?>" alt="..." class="img-fluid"></div>
+                      <div class="avatar"><img src="<?php echo $user['photoPath1'] ?>" alt="..." class="img-fluid" style="width:25px; height:25px;"></div>
                       <div class="title"><span><?php echo $user['firstName'].' '.$user['lastName'] ?></span></div></a>
                     <div class="date"><i class="icon-clock"></i><?php echo $time ?></div>
                   </footer>
